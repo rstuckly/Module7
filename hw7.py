@@ -1,6 +1,9 @@
 from sortedcontainers import SortedDict
 
-#Adding comment for lab
+"""I did the optional section on deleting a user by name or username, but I feel that
+there is probably a much more efficient way of doing it.  I put the values into a list
+and then got the index of the value the user entered for the username.  I then used
+that position to delete the same position in the dictionary for the key in that position."""
 
 def print_menu():
     print('1. Print Users')
@@ -27,7 +30,10 @@ print_menu()
 # as long as the menu choice isn't "quit" get user options
 while menu_choice != 5:
     # get menu choice from user
-    menu_choice = int(input("Type in a number (1-5): "))
+    try:
+        menu_choice = int(input("Type in a number (1-5): "))
+    except ValueError:
+        print("\nYou must enter an integer between 1 and 5.\n")
     
     # view current entries
     if menu_choice == 1:
@@ -45,18 +51,27 @@ while menu_choice != 5:
     # remove an entry
     elif menu_choice == 3:
         print("Remove User")
-        name = input("Name: ")
-        if name in usernames:
-            pass # delete that entry
+        y =(usernames.values())
+        z = input("Please enter either a name or username:")
+        try:
+            if z in usernames.keys():
+                del usernames[z]
+            elif (y.index(z)):
+                pos = y.index(z)
+                del usernames[(usernames.keys()[pos])]
+        except ValueError:
+            print("\nThe name or username entered is not in the dictionary.\n")
+
+
 
     # view user name      
     elif menu_choice == 4:
         print("Lookup User")
         name = input("Name: ")
         if name in usernames:
-            pass # print the username
+            print("The username for {} is: {}".format(name,usernames[name]))
         else:
-            pass # print username not found
+            print("Name not found")
     
     # is user enters something strange, show them the menu
     elif menu_choice != 5:
