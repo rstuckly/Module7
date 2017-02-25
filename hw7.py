@@ -3,7 +3,9 @@ from sortedcontainers import SortedDict
 """I did the optional section on deleting a user by name or username, but I feel that
 there is probably a much more efficient way of doing it.  I put the values into a list
 and then got the index of the value the user entered for the username.  I then used
-that position to delete the same position in the dictionary for the key in that position."""
+that position to delete the same position in the dictionary for the key in that position. I
+realize that dictionarys aren't an ordered structure and positions can change, but at
+least in this instance it seems to work.  """
 
 def print_menu():
     print('1. Print Users')
