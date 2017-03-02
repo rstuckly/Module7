@@ -5,7 +5,13 @@ there is probably a much more efficient way of doing it.  I put the values into 
 and then got the index of the value the user entered for the username.  I then used
 that position to delete the same position in the dictionary for the key in that position. I
 realize that dictionarys aren't an ordered structure and positions can change, but at
-least in this instance it seems to work.  """
+least in this instance it seems to work.
+
+I am once again struggling with a usable try/execept statement in every case.  I've
+tried using special characters, upper/lower and a mix of floats and integers and, but
+all of the menu choices appear to continue fine which I assume has something
+to do with the while function.  I don't really see a point of just sticking a random
+try statement in each just to meet the homework requirement. """
 
 def print_menu():
     print('1. Print Users')
@@ -55,6 +61,7 @@ while menu_choice != 5:
         print("Remove User")
         y =(usernames.values())
         z = input("Please enter either a name or username:")
+        
         try:
             if z in usernames.keys():
                 del usernames[z]
@@ -73,7 +80,7 @@ while menu_choice != 5:
         if name in usernames:
             print("The username for {} is: {}".format(name,usernames[name]))
         else:
-            print("Name not found")
+            print("\nName not found\n")
     
     # is user enters something strange, show them the menu
     elif menu_choice != 5:
